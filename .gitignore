@@ -1,0 +1,22 @@
+# ============ Directories ============
+
+/.gradle
+/.idea
+build/
+release/
+
+# Gradle folder except gradle-wrapper.properties
+
+gradle/wrapper/*
+!gradle/wrapper/gradle-wrapper.properties
+
+# ============ Files ==================
+
+gradlew
+gradlew.bat
+local.properties
+.DS_Store
+*.class
+*.iml
+*.apk
+*.json
