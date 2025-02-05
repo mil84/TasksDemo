@@ -10,10 +10,10 @@ https://developer.android.com/identity/authorization
 
 Only thing I've changed were requested Scopes (instead of `Drive` scope I uses `Google Tasks` scopes):
 
-"https://www.googleapis.com/auth/tasks",
-"https://www.googleapis.com/auth/tasks.readonly"
+* "https://www.googleapis.com/auth/tasks",
+* "https://www.googleapis.com/auth/tasks.readonly"
 
-You can find the [relevant code here.](https://github.com/mil84/TasksDemo/blob/master/app/src/main/java/sk/tasks/demo/AuthClient.kt)
+You can find the [relevant code here.](https://github.com/mil84/TasksDemo/blob/master/app/src/main/java/sk/tasks/pokus/AuthClient.kt)
 
 ## Setup - Cloud console
 
@@ -23,13 +23,17 @@ I went step by step according to docs and set my cloud console like this:
 2. I enabled Tasks API for my new project: https://console.cloud.google.com/apis/enableflow?apiid=tasks.googleapis.com
 3. I created a new brand: https://console.cloud.google.com/auth/branding
 4. I created an OAuth client: https://console.cloud.google.com/auth/clients
-   a. package of my app: my app
-   b. SHA-1: from debug key (double checked)
-   NOTE: I also experimented with activating `Custom URI scheme` in `Advanced Settings`, but it had no effect on Android client...
+   * type `Android`, package of my app, SHA-1 (double checked)
+   * I also tried type `WEB`
+   * I also experimented with activating `Custom URI scheme` in `Advanced Settings`, doesn't seem to make much difference
 5. I set-up all requested scopes: https://console.cloud.google.com/auth/scopes
 6. Finally, I added also tester emails (my account): https://console.cloud.google.com/auth/audience
 
-Regardless all of these issues, I still get errors mentioned in [section Errors](##Errors) below. 
+Regardless, I still get errors mentioned in [section Errors](##Errors) below. 
+
+> **NOTE1:** When I request an access to different, non-restricted or non-sensitive scopes, `AuthorizationClient` works fine. So cloud console setup is likely correct, and mistake is probably on the client side (android app).
+>
+> **NOTE2:** Also, the very same cloud configucarion works if I'm using `AppAuth` library in custom tabs/browser to authorize my app - that also indicates error is on client side (android app) - or in `AuthorizationClient`?
 
 ## Errors
 
