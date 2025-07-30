@@ -2,6 +2,11 @@
 
 This is a minimalist reproducible example of using `AuthorizationClient` to access Google Tasks API. 
 
+Result: 
+
+1. It works on emulators
+2. It does not work on real device
+
 ## Setup - Android
 
 Code was copy-pasted from the official documentation here:
